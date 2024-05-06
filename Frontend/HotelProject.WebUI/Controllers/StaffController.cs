@@ -1,4 +1,4 @@
-﻿using HotelProject.WebUI.Models.ApiResultDtos;
+﻿using HotelProject.WebUI.Models.ApiResult;
 using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -54,7 +54,7 @@ namespace HotelProject.WebUI.Controllers
             else
             {
                 var resultJson = await responseMessage.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<List<ResultApiDto>>(resultJson);
+                var result = JsonConvert.DeserializeObject<List<ResultApiViewModel>>(resultJson);
                 foreach (var item in result)
                 {
                     ModelState.AddModelError(item.propertyName, item.errorMessage);
@@ -62,6 +62,45 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> UpdateStaff(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5269/api/Staff/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateStaffViewModel>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateStaff(UpdateStaffViewModel model)
+        {
+            ModelState.Clear();
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(model);
+            StringContent strContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:5269/api/Staff", strContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                createMessage("success", "Personel Kaydı Güncellendi.");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                var resultJson = await responseMessage.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<List<ResultApiViewModel>>(resultJson);
+                foreach (var item in result)
+                {
+                    ModelState.AddModelError(item.propertyName, item.errorMessage);
+                }
+            }
+            return View();
+        }
+
+
         public async Task<ActionResult> DeleteStaff(int id)
         {
             var client = _httpClientFactory.CreateClient();

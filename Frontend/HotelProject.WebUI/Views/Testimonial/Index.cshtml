@@ -1,4 +1,4 @@
-﻿@model List<StaffViewModel>
+﻿@model List<TestimonialViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -8,15 +8,17 @@
 <div class="container">
 
     <div class="table-responsive mt-3">
-        <h1 class="card-title text-muted mb-4">Personel Listesi</h1>
+        <h1 class="card-title text-muted mb-4">Referanslar Listesi</h1>
 
-        <a href="/Staff/AddStaff/" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Yeni Personel Ekle</a>
+        <a href="/Testimonial/AddTestimonail/" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Yeni Referans Ekle</a>
         <table class="table table-hover mt-4">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Personel Adı Soyadı</th>
-                    <th scope="col">Personel Ünvanı</th>
+                    <th scope="col">Ad Soyad</th>
+                    <th scope="col">Ünvan</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Görsel</th>
                     <th colspan="2" class="text-center" scope="col">İşlemler</th>
                 </tr>
             </thead>
@@ -28,14 +30,17 @@
                         <td>@count</td>
                         <td>@item.Name</td>
                         <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td><img src="@item.Image" style="width:75px; height:75px; border-radius:50%" /></td>
+                        <td>@item.Title</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/Staff/UpdateStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
+                                <a href="/Testimonial/UpdateTestimonail/@item.TestimonialID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
                             </span>
                         </td>
                         <td style="width:40px">
                             <span>
-                                <button onclick="deleteStaff(@item.StaffID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <button onclick="deleteTestimonial(@item.TestimonialID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
                             </span>
 
                         </td>
@@ -50,11 +55,11 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-   
-    function deleteStaff(id) {
+
+    function deleteTestimonial(id) {
         Swal.fire({
             title: "Kayıt Silme Onayı",
-            html: "Personeli kaydını silmek istediğinize emin misiniz? <br><b> bu işlem geri alanımaz.</b>",
+            html: "Referans kaydını silmek istediğinize emin misiniz? <br><b> bu işlem geri alanımaz.</b>",
             icon: "info",
             showCancelButton: true,
             confirmButtonColor: "#d33",
@@ -63,7 +68,7 @@
             cancelButtonText: "Vazgeç"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Staff/DeleteStaff/" + id;
+                window.location.href = "/Testimonial/DeleteTestimonail/" + id;
             }
             else {
                 Toast.fire({

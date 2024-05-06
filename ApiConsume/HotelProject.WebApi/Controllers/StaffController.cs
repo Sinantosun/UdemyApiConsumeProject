@@ -29,6 +29,7 @@ namespace HotelProject.WebApi.Controllers
         [HttpPost]
         public IActionResult AddStaff(Staff staff)
         {
+            
             StaffValidator validationRules = new StaffValidator();
             ValidationResult validationResult = validationRules.Validate(staff);
             if (validationResult.IsValid)
