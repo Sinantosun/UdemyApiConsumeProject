@@ -1,6 +1,7 @@
-﻿namespace HotelProject.WebUI.Models.Staff
+﻿
+namespace HotelProject.WebUI.Models.Staff
 {
-    public class CreateStaffViewModel
+    public class AddStaffViewModel
     {
         public string Name { get; set; }
         public string Title { get; set; }

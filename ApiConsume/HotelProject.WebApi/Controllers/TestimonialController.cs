@@ -1,11 +1,6 @@
-﻿using FluentValidation.Results;
-using HotelProject.BusinnessLayer.Abstract;
-using HotelProject.BusinnessLayer.ValidationRules.TestimonialRules;
-using HotelProject.DtoLayer.ApiResultDtos;
+﻿using HotelProject.BusinnessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace HotelProject.WebApi.Controllers
 {
@@ -29,29 +24,8 @@ namespace HotelProject.WebApi.Controllers
         [HttpPost]
         public IActionResult AddTestimonial(Testimonial testimonial)
         {
-                TestimonialValidator validationRules = new TestimonialValidator();
-                ValidationResult validationResult = validationRules.Validate(testimonial);
-                if (validationResult.IsValid)
-                {
                     _testimonialService.TInsert(testimonial);
                     return Ok();
-                }
-                else
-                {
-                    List<ResultApiDto> list = new List<ResultApiDto>();
-                    foreach (var item in validationResult.Errors)
-                    {
-                        list.Add(new ResultApiDto
-                        {
-                            errorMessage = item.ErrorMessage,
-                            propertyName = item.PropertyName,
-
-                        });
-
-                    }
-                    return BadRequest(list);
-                }
-           
         }
         [HttpDelete]
         public IActionResult DeleteTestimonial(int id)
@@ -63,10 +37,6 @@ namespace HotelProject.WebApi.Controllers
         [HttpPut]
         public IActionResult UpdateTestimonial(Testimonial testimonial)
         {
-            TestimonialValidator validationRules = new TestimonialValidator();
-            ValidationResult validationResult = validationRules.Validate(testimonial);
-            if (validationResult.IsValid)
-            {
                 var values = _testimonialService.TGetById(testimonial.TestimonialID);
                 values.Name = testimonial.Name;
                 values.Title = testimonial.Title;
@@ -78,25 +48,6 @@ namespace HotelProject.WebApi.Controllers
                 }
                 _testimonialService.TUpdate(values);
                 return Ok();
-            }
-            else
-            {
-                List<ResultApiDto> list = new List<ResultApiDto>();
-                foreach (var item in validationResult.Errors)
-                {
-                    list.Add(new ResultApiDto
-                    {
-                        errorMessage = item.ErrorMessage,
-                        propertyName = item.PropertyName,
-
-                    });
-
-                }
-                return BadRequest(list);
-            }
-
-
-
         }
         [HttpGet("{id}")]
         public IActionResult GetTestimonialById(int id)

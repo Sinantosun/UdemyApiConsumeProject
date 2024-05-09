@@ -9,9 +9,9 @@ namespace HotelProject.WebApi.Controllers
     [ApiController]
     public class ServiceController : ControllerBase
     {
-        private readonly ISubscribeService _serviceService;
+        private readonly IServicesService _serviceService;
 
-        public ServiceController(ISubscribeService serviceService)
+        public ServiceController(IServicesService serviceService)
         {
             _serviceService = serviceService;
         }
@@ -23,7 +23,7 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult AddService(Subscribe service)
+        public IActionResult AddService(Service service)
         {
             _serviceService.TInsert(service);
             return Ok();
@@ -36,7 +36,7 @@ namespace HotelProject.WebApi.Controllers
             return Ok();
         }
         [HttpPut]
-        public IActionResult UpdateService(Subscribe service)
+        public IActionResult UpdateService(Service service)
         {
             _serviceService.TUpdate(service);
             return Ok();

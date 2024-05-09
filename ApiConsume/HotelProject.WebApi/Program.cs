@@ -3,13 +3,13 @@ using HotelProject.BusinnessLayer.Concrete;
 using HotelProject.DataAccsessLayer.Abstract;
 using HotelProject.DataAccsessLayer.Concrete;
 using HotelProject.DataAccsessLayer.Entityframework;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -29,6 +29,8 @@ builder.Services.AddScoped<ITestimonailService, TestimonialManager>();
 
 builder.Services.AddScoped<ISubscribesDal, EFSubscribesDal>();
 builder.Services.AddScoped<ISubscribeService, SubscribesManager>();
+
+
 
 builder.Services.AddCors(opt =>
 {

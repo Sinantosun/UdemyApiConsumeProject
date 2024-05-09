@@ -1,6 +1,4 @@
-﻿using HotelProject.HotelProject.WebUI.ImageValidations;
-using HotelProject.WebUI.ImageCrud;
-using HotelProject.WebUI.Models.ApiResult;
+﻿using FluentValidation.Results;
 using HotelProject.WebUI.Models.Testimonial;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -41,52 +39,20 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddTestimonail(CreateTestimonialViewModel model)
+        public async Task<IActionResult> AddTestimonail(TestimonialViewModel model)
         {
-            ModelState.Clear();
-            if (model.FromFileImage != null)
+
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(model);
+            StringContent strContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:5269/api/Testimonial", strContent);
+            if (responseMessage.IsSuccessStatusCode)
             {
-                var ex = Path.GetExtension(model.FromFileImage.FileName);
-                bool imageExtentionValidator = ImageValidator.CheckImageExtention(ex);
-                if (imageExtentionValidator)
-                {
-                    var newImageName = Guid.NewGuid() + ex;
-                    model.Image = "/Images/Testimonail/" + newImageName;
 
-                    var client = _httpClientFactory.CreateClient();
-                    var jsonData = JsonConvert.SerializeObject(model);
-                    StringContent strContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                    var responseMessage = await client.PostAsync("http://localhost:5269/api/Testimonial", strContent);
-                    if (responseMessage.IsSuccessStatusCode)
-                    {
-                        var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/Testimonail/", newImageName);
-                        CreateImage.Create(model.FromFileImage, location);
-
-                        createMessage("success", "Referans kaydı eklendi.");
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        var resultJson = await responseMessage.Content.ReadAsStringAsync();
-                        var result = JsonConvert.DeserializeObject<List<ResultApiViewModel>>(resultJson);
-                        foreach (var item in result)
-                        {
-                            ModelState.AddModelError(item.propertyName, item.errorMessage);
-                        }
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("FromFileImage", "Seçilen dosya türü desteklenmiyor.");
-                }
-
-            }
-            else
-            {
-                ModelState.AddModelError("FromFileImage", "Lütfen Resim Seçin");
+                createMessage("success", "Referans kaydı eklendi.");
+                return RedirectToAction("Index");
             }
             return View();
-
         }
 
         public async Task<IActionResult> UpdateTestimonail(int id)
@@ -96,35 +62,14 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateTestimonialViewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<TestimonialViewModel>(jsonData);
                 return View(values);
             }
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateTestimonail(UpdateTestimonialViewModel model)
+        public async Task<IActionResult> UpdateTestimonail(TestimonialViewModel model)
         {
-            ModelState.Clear();
-
-            if (model.formFile != null)
-            {
-                var ex = Path.GetExtension(model.formFile.FileName);
-                bool imageExtentionValidator = ImageValidator.CheckImageExtention(ex);
-                if (imageExtentionValidator)
-                {
-                    var newImageName = Guid.NewGuid() + ex;
-                    var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/Testimonail/", newImageName);
-                    CreateImage.Create(model.formFile, location);
-                    model.Image = "/Images/Testimonail/" + newImageName;
-                }
-                else
-                {
-                    createMessage("error", "Dosya biçimi desteklenmiyor, işleminize devam edemiyoruz lütfen seçilen dosyayı kontrol edin.");
-                    return RedirectToAction("Index");
-                }
-            
-             
-            }
 
 
             var client = _httpClientFactory.CreateClient();
@@ -135,16 +80,6 @@ namespace HotelProject.WebUI.Controllers
             {
                 createMessage("success", "Referans Kaydı Güncellendi.");
                 return RedirectToAction("Index");
-            }
-            else
-            {
-
-                var resultJson = await responseMessage.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<List<ResultApiViewModel>>(resultJson);
-                foreach (var item in result)
-                {
-                    ModelState.AddModelError(item.propertyName, item.errorMessage);
-                }
             }
             return View();
         }
