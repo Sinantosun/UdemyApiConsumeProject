@@ -28,7 +28,7 @@ namespace HotelProject.WebUI.Controllers
             return PartialView();
         }
         [HttpPost]
-        public async Task<PartialViewResult> AddBooking(CreateBookingDto createBookingDto)
+        public async Task<IActionResult> AddBooking(CreateBookingDto createBookingDto)
         {
             createBookingDto.Status = "Onay Bekliyor";
             createBookingDto.Description = "Değerlendirilmede";    
@@ -36,7 +36,7 @@ namespace HotelProject.WebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(createBookingDto);
             StringContent str = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("http://localhost:5269/api/Booking", str);
-            return PartialView();
+            return RedirectToAction("Index", "Default");
         }
     }
 }

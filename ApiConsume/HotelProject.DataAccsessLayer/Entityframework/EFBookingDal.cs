@@ -12,8 +12,17 @@ namespace HotelProject.DataAccsessLayer.Entityframework
 {
     public class EFBookingDal : GenericRepository<Booking>, IBookingDal
     {
+        private readonly Context _context;
         public EFBookingDal(Context context) : base(context)
         {
+            _context = context;
+        }
+
+        public void BookingStatusChangeApproved(int id)
+        {
+            var value = _context.Bookings.Find(id);
+            value.Status = "Onaylandı";
+            _context.SaveChanges();
         }
     }
 }
