@@ -25,6 +25,11 @@ namespace HotelProject.BusinnessLayer.Concrete
             return _roomDal.GetById(id);
         }
 
+        public List<Room> TgetLastThreeRooms()
+        {
+            return _roomDal.getLastThreeRooms();
+        }
+
         public List<Room> TGetList()
         {
             return _roomDal.GetList();

@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_HeadComponentPartial")
+<body>
+    <div class="container-xxl bg-white p-0">
+        @await Component.InvokeAsync("_HeaderComponentPartial")
+        @RenderBody()
+        @await Component.InvokeAsync("_FooterComponentPartial")
+    </div>
+    @await Component.InvokeAsync("_ScriptComponentPartial")
+
+</body>
+
+</html>

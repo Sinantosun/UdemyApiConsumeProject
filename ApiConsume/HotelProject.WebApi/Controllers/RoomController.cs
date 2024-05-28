@@ -20,6 +20,14 @@ namespace HotelProject.WebApi.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet("getLastRooms")]
+        public IActionResult getLastRooms()
+        {
+            var values = _roomService.TgetLastThreeRooms();
+            return Ok(values);
+        }
+
+
         [HttpGet]
         public IActionResult Roomlist()
         {

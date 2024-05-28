@@ -14,5 +14,6 @@ namespace HotelProject.EntityLayer.Concrete
         public string SocailMedia1 { get; set; }
         public string SocailMedia2 { get; set; }
         public string SocailMedia3 { get; set; }
+        public string image { get; set; }
     }
 }

@@ -30,7 +30,11 @@ builder.Services.AddScoped<ITestimonailService, TestimonialManager>();
 builder.Services.AddScoped<ISubscribesDal, EFSubscribesDal>();
 builder.Services.AddScoped<ISubscribeService, SubscribesManager>();
 
+builder.Services.AddScoped<IAboutUsService, AboutUsManager>();
+builder.Services.AddScoped<IAbouUsDal, EFAboutDal>();
 
+builder.Services.AddScoped<IBookingService, BookingManager>();
+builder.Services.AddScoped<IBookingDal, EFBookingDal>();
 
 builder.Services.AddCors(opt =>
 {

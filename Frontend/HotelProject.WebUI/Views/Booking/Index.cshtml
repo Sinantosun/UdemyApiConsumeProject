@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+
+
+    <div class="container-xxl bg-white p-0">
+
+    @await Component.InvokeAsync("_BookingCoverComponentPartial")
+   
+    @await Html.PartialAsync("AddBooking")
+     
+        <!-- Booking End -->
+        <!-- Booking Start -->
+      
+
+
+    @await Component.InvokeAsync("_NewsLetterComponentPartial")
+
+    </div>
+
