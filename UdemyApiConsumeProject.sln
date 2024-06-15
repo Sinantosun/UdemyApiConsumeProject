@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.DtoLayer", "Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{E9A7BF46-B3A9-49BB-83E9-430EFD673138}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{D176ADEB-BA48-48FC-BDA9-400985DB2A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApiConsume", "RapidApi\RapidApiConsume\RapidApiConsume.csproj", "{03CF4267-27C5-412D-9A85-F0B4D62128AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{E9A7BF46-B3A9-49BB-83E9-430EFD673138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A7BF46-B3A9-49BB-83E9-430EFD673138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A7BF46-B3A9-49BB-83E9-430EFD673138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03CF4267-27C5-412D-9A85-F0B4D62128AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03CF4267-27C5-412D-9A85-F0B4D62128AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03CF4267-27C5-412D-9A85-F0B4D62128AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03CF4267-27C5-412D-9A85-F0B4D62128AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{93DD9239-8242-42CB-AC99-C1397D159DAF} = {F7DCAAE6-6305-4676-9739-7B5386CE0A24}
 		{568BDA55-C636-4C6C-881E-6D871055E4C5} = {F7DCAAE6-6305-4676-9739-7B5386CE0A24}
 		{E9A7BF46-B3A9-49BB-83E9-430EFD673138} = {CB5338C4-0447-42FA-B989-77E3F0D1C57F}
+		{03CF4267-27C5-412D-9A85-F0B4D62128AE} = {D176ADEB-BA48-48FC-BDA9-400985DB2A6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79490894-18EF-45C4-A31F-58D7D7AE14CC}

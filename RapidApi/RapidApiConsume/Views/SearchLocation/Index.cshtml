@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+    int count = 0;
+}
+
+@model List<BookingLocationSearchViewModel.Result>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+
+        @using (Html.BeginForm("Index", "SearchLocation", FormMethod.Post))
+        {
+
+            <label>Şehir Adını Yazınız</label>
+            <input type="text" name="cityName" class="form-control" />
+
+            <br />
+            <button type="submit" class="btn btn-primary">Getir</button>    
+        }
+        <br />
+        <br />
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>#</td>
+                <td>Otel Adı</td>
+                <td>Otel Puanı</td>
+            
+            </tr>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.name</td>
+                    <td>@item.reviewScore</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

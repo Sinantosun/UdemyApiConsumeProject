@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ExchangeViewModel.Exchange_Rates>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>Doviz Kodu</td>
+                <td>Birim Fiyat</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>1 @item.currency</td>
+                    <td>@item.exchange_rate_buy</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
