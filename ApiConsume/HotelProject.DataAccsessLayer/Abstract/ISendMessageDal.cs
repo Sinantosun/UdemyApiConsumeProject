@@ -6,5 +6,6 @@ namespace HotelProject.DataAccsessLayer.Abstract
 {
     public interface ISendMessageDal : IGenericDal<SendMessage>
     {
+        public int GetMessageCount();
     }
 }

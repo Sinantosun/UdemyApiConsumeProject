@@ -1,0 +1,48 @@
+﻿@using HotelProject.WebUI.Dtos.SendMessageDto;
+@model List<ResultSendBoxDto>
+@{
+    ViewData["Title"] = "Sendbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+
+    <div class="card-body">
+
+        @await Component.InvokeAsync("_MailboxSideboxComponentPartial")
+        <div class="email-right-box">
+            <h3 class="text-muted mb-5">Gönderilen Mesajlar</h3>
+            <div class="email-list m-t-15">
+                @foreach (var item in Model)
+                {
+                    <div class="message">
+                        <a href="/AdminContact/MessageDetails/@item.SendMessageID">
+                            <div class="col-mail col-mail-1">
+                                <div class="email-checkbox">
+                                    <input type="checkbox" id="chk2">
+                                    <label class="toggle" for="chk2"></label>
+                                </div><span class="star-toggle ti-star"></span>
+                            </div>
+                            <div class="col-mail col-mail-2">
+                                <div class="subject" style="align-items:center; display:flex; justify-content:space-around">
+                                @*     <b>Konu : @item.Title </b> <b>Alıcı :  @item.ReciverName</b> @(item.Content.Length > 150 ? item.Content.Substring(0, 150) + "..." : item.Content) *@
+                                <b>Konu : @item.Title</b>
+                                <b>Alıcı : @item.ReciverName</b>
+                                    <b>Mesaj : @(item.Content.Length > 30 ? item.Content.Substring(0, 30) + "..." : item.Content)  </b>
+                                </div>
+                                <div class="date"> <b>Tarih: </b>@(((DateTime)item.SenderDate).ToString("dd MMM"))</div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

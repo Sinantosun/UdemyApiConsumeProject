@@ -1,0 +1,38 @@
+﻿@using HotelProject.WebUI.Dtos.ConatctDto;
+@model InboxContactDto
+@{
+    ViewData["Title"] = "MessageDetailsByInbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+
+    <div class="card-body">
+        @await Component.InvokeAsync("_MailboxSideboxComponentPartial")
+        <div class="email-right-box">
+
+            <div class="read-content">
+                <div class="media pt-5">
+                    <div class="media-body">
+                        <h5 class="m-b-3" style="text-transform:capitalize"> @Model.Name</h5>
+                        <p class="m-b-2">@(((DateTime)Model.Date).ToString("f"))</p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="media mb-4 mt-1">
+                    <div class="media-body">
+                        <h4 class="m-0 text-primary">@Model.Subject</h4><small class="text-muted">Kimden : @Model.Mail</small>
+                    </div>
+                </div>
+                <h5 class="m-b-15">@Model.MessageContent</h5>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

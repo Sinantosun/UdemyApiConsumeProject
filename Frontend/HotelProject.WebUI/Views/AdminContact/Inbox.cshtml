@@ -7,33 +7,38 @@
 
 
 <div class="col-lg-12">
-    <div class="card">
+
         <div class="card-body">
-            @await Html.PartialAsync("MailboxSideboxPartial")
+        @await Component.InvokeAsync("_MailboxSideboxComponentPartial")
             <div class="email-right-box">
+            <h3 class="text-muted mb-5">Gelen Mesajlar</h3>
                 <div class="email-list m-t-15">
                     @foreach (var item in Model)
                     {
-                        <div class="message">
-                            <a href="email-read.html">
-                                <div class="col-mail col-mail-1">
-                                    <div class="email-checkbox">
-                                        <input type="checkbox" id="chk2">
-                                        <label class="toggle" for="chk2"></label>
-                                    </div><span class="star-toggle ti-star"></span>
+                    <div class="message">
+                        <a href="/AdminContact/MessageDetailsByInbox/@item.ContactID">
+                            <div class="col-mail col-mail-1">
+                                <div class="email-checkbox">
+                                    <input type="checkbox" id="chk2">
+                                    <label class="toggle" for="chk2"></label>
+                                </div><span class="star-toggle ti-star"></span>
+                            </div>
+                            <div class="col-mail col-mail-2">
+                                <div class="subject" style="align-items:center; display:flex; justify-content:space-around">
+                                    <b>Konu : @item.Subject</b>
+                                    <b>Gönderen : @item.Name</b>
+                                    <b>Mesaj : @(item.MessageContent.Length > 30 ? item.MessageContent.Substring(0, 30) + "..." : item.MessageContent)  </b>
                                 </div>
-                                <div class="col-mail col-mail-2">
-                                    <div class="subject">@(item.MessageContent.Length > 150 ? item.MessageContent.Substring(0,150) + "..." : item.MessageContent)</div>
-                                    <div class="date">@(((DateTime)item.Date).ToString("t"))</div>
-                                </div>
-                            </a>
-                        </div>
+                                <div class="date"> <b>Tarih: </b>@(((DateTime)item.Date).ToString("dd MMM"))</div>
+                            </div>
+                        </a>
+                    </div>
                     }
 
                 </div>
             </div>
         </div>
-    </div>
+
 </div>
 
 

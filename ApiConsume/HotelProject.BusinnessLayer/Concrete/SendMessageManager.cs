@@ -39,6 +39,11 @@ namespace HotelProject.BusinnessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public int TGetMessageCount()
+        {
+            return _sendMessageDal.GetMessageCount();
+        }
+
         public void TInsert(SendMessage t)
         {
             _sendMessageDal.Insert(t);

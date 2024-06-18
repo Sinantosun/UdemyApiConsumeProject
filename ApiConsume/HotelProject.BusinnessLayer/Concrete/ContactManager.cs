@@ -26,7 +26,12 @@ namespace HotelProject.BusinnessLayer.Concrete
 
         public Contact TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetById(id);
+        }
+
+        public int TGetContactCount()
+        {
+            return _contactDal.GetContactCount();
         }
 
         public List<Contact> TGetList()

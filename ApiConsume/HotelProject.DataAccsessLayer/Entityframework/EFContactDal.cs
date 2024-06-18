@@ -15,5 +15,11 @@ namespace HotelProject.DataAccsessLayer.Entityframework
         public EFContactDal(Context context) : base(context)
         {
         }
+
+        public int GetContactCount()
+        {
+            var context = new Context();
+            return context.contacts.Count();
+        }
     }
 }
