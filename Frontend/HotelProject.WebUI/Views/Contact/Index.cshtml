@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+
+<div class="container-xxl bg-white p-0">
+
+    @await Component.InvokeAsync("_ContactCoverComponentPartial")
+    @await Html.PartialAsync("SendMessage")
+</div>
+
+
+@await Component.InvokeAsync("_NewsLetterComponentPartial")

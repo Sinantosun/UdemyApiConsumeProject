@@ -36,6 +36,15 @@ builder.Services.AddScoped<IAbouUsDal, EFAboutDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
 builder.Services.AddScoped<IBookingDal, EFBookingDal>();
 
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactDal, EFContactDal>();
+
+builder.Services.AddScoped<IGuestService, GuestManager>();
+builder.Services.AddScoped<IGuestDal, EFGuestDal>();
+
+builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
+builder.Services.AddScoped<ISendMessageDal, EFSendMessageDal>();
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("OtelApiCors", opts =>

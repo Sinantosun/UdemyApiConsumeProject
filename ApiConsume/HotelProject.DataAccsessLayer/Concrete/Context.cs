@@ -18,5 +18,8 @@ namespace HotelProject.DataAccsessLayer.Concrete
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<AboutUs> aboutUs { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Guest> guests { get; set; }
+        public DbSet<Contact> contacts { get; set; }
+        public DbSet<SendMessage> sendMessages { get; set; }
     }
 }

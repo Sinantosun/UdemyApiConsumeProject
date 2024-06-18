@@ -12,7 +12,7 @@
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
                             <img class="img-fluid" src="@item.RoomCoverImage" alt="">
-                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">@item.Price.ToString("N0") ₺</small>
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">@item.Price.ToString("N0") ₺ / Gece</small>
                         </div>
                         <div class="p-4 mt-2">
                             <div class="d-flex justify-content-between mb-3">
@@ -36,8 +36,8 @@
                             </div>
                             <p class="text-body mb-3">@item.Description</p>
                             <div class="d-flex justify-content-between">
-                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">Detay</a>
-                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Rezervasyon</a>
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/Booking/Index">Detay</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/Booking/Index">Rezervasyon</a>
                             </div>
                         </div>
                     </div>
