@@ -1,10 +1,11 @@
 ﻿
 
-namespace HotelProject.EntityLayer.Concrete
+namespace HotelProject.DtoLayer.Dtos.ContactDtos
 {
-    public class Contact
+    public class CreateContactDto
     {
-        public int ContactID { get; set; }
+
+
         public string Name { get; set; }
         public string Mail { get; set; }
         public string Subject { get; set; }
@@ -12,6 +13,6 @@ namespace HotelProject.EntityLayer.Concrete
         public DateTime Date { get; set; }
 
         public int MessageCategoryID { get; set; }
-        public MessageCategory messageCategory { get; set; }
+
     }
 }

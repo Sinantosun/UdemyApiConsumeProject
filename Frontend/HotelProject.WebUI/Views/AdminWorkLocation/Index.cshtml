@@ -1,0 +1,78 @@
+﻿
+@model List<ResultWorkLocationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="container">
+
+    <div class="table-responsive mt-3">
+        <h1 class="card-title text-muted mb-4">Lokasyon Listesi</h1>
+        <a href="/AdminWorkLocation/AddWorkLocation" class="btn btn-outline-primary">Yeni lokasyon girişi</a>
+        <table class="table table-hover mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Şehir</th>
+                    <th scope="col">Lokasyon</th>
+                    <th colspan="2" class="text-center" scope="col">İşlemler</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tbody>
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.CityName</td>
+                        <td>@item.LocationName</td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/AdminWorkLocation/UpdateWorkLocation/@item.WorkLocationID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
+                            </span>
+                        </td>
+                        <td style="width:40px">
+                            <span>
+                                <button onclick="deleteLocation(@item.WorkLocationID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                            </span>
+
+                        </td>
+                    </tr>
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+   
+    function deleteLocation(id) {
+        Swal.fire({
+            title: "Kayıt Silme Onayı",
+            html: "Lokasyon kaydını silmek istediğinize emin misiniz? <br><b> bu işlem geri alanımaz.</b>",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sil",
+            cancelButtonText: "Vazgeç"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/AdminWorkLocation/DeleteWorkLocation/" + id;
+            }
+            else {
+                Toast.fire({
+                    icon: "warning",
+                    title: "Kayıt Silme işlemi iptal edildi."
+                });
+            }
+        });
+    }
+</script>
+@await Html.PartialAsync("~/Views/AdminLayout/NotificationPartial.cshtml")

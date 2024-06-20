@@ -1,0 +1,21 @@
+﻿@model CreateWorkLocationDto
+@{
+    ViewData["Title"] = "AddWorkLocation";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<div class="container">
+    <h1 class="card-title text-muted mb-4">Yeni lokasyon ekleme sayfası</h1>
+    <form method="post">
+        <label>Şehir</label>
+        <input type="text" asp-for="CityName" class="form-control" />
+        <span asp-validation-for="CityName" class="text-danger"></span>
+        <br />
+        <label>Lokasyon</label>
+        <input type="text" asp-for="LocationName" class="form-control" />
+        <span asp-validation-for="LocationName" class="text-danger"></span>
+
+        <br />
+        <button class="btn btn-outline-primary"><i class="fa fa-plus"></i> Ekle</button>
+    </form>
+</div>
+

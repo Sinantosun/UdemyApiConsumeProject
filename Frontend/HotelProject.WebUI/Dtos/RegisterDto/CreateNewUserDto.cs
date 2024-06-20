@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HotelProject.EntityLayer.Concrete;
+using System.ComponentModel.DataAnnotations;
 
 namespace HotelProject.WebUI.Dtos.RegisterDto
 {
@@ -19,5 +20,8 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
         [Required(ErrorMessage = "Şifre tekrar boş bırakılamaz")]
         [Compare("Password",ErrorMessage ="Şifreler uyuşmuyor")]
         public string ConfirmPassword { get; set; }
+
+  
+
     }
 }

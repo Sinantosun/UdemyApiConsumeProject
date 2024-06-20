@@ -1,0 +1,37 @@
+﻿@using HotelProject.WebUI.Dtos.AppUserDto;
+@model List<ResultAppUserDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<div class="table-responsive">
+    <table class="table table-xs mb-0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>Şehir</th>
+                <th>Çalıştığı Yer</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.ImageURL" class=" rounded-circle mr-3" alt=""></td>
+                    <td style="text-transform:capitalize">
+                        @item.NameSurname </td>
+                    <td>@item.City</td>
+                    <td>@item.WorkLocation.LocationName</td>
+                    <td><i class="fa fa-circle-o text-success  mr-2"></i> Aktif</td>
+                </tr>
+            }
+  
+        </tbody>
+    </table>
+    <br />
+    <a href="/Register/Index" class="btn btn-outline-primary">Yeni kullanıcı kaydı</a>
+</div>

@@ -4,12 +4,16 @@ using HotelProject.DataAccsessLayer.Abstract;
 using HotelProject.DataAccsessLayer.Concrete;
 using HotelProject.DataAccsessLayer.Entityframework;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(opts =>
+{
+    opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -44,6 +48,17 @@ builder.Services.AddScoped<IGuestDal, EFGuestDal>();
 
 builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 builder.Services.AddScoped<ISendMessageDal, EFSendMessageDal>();
+
+builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+builder.Services.AddScoped<IMessageCategoryDal, EFMessageCategoryDal>();
+
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+builder.Services.AddScoped<IWorkLocationDal, EFWorkLocationDal>();
+
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+builder.Services.AddScoped<IAppUserDal, EFAppUserDal>();
+
+
 
 builder.Services.AddCors(opt =>
 {

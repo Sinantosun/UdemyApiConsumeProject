@@ -1,4 +1,6 @@
-﻿using HotelProject.BusinnessLayer.Abstract;
+﻿using AutoMapper;
+using HotelProject.BusinnessLayer.Abstract;
+using HotelProject.DtoLayer.Dtos.ContactDtos;
 using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +12,11 @@ namespace HotelProject.WebApi.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
-
-        public ContactController(IContactService ContactService)
+        private readonly IMapper _mapper;
+        public ContactController(IContactService ContactService, IMapper mapper)
         {
             _contactService = ContactService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -23,10 +26,11 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult AddContact(Contact contact)
+        public IActionResult AddContact(CreateContactDto contact)
         {
+            var mappedValue = _mapper.Map<Contact>(contact);
             contact.Date = DateTime.Now;
-            _contactService.TInsert(contact);
+            _contactService.TInsert(mappedValue);
             return Ok();
 
         }
