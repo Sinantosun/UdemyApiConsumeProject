@@ -54,5 +54,11 @@ namespace HotelProject.WebApi.Controllers
             var value = _BookingService.TGetById(id);
             return Ok(value);
         }
+        [HttpGet("GetLastSixBookingList")]
+        public IActionResult GetLastSixBookingList()
+        {
+            var value = _BookingService.TGetLastSixBookingList();
+            return Ok(value);
+        }
     }
 }

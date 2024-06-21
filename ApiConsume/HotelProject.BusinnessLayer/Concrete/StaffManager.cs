@@ -26,6 +26,11 @@ namespace HotelProject.BusinnessLayer.Concrete
             return _staffdal.GetById(id);
         }
 
+        public List<Staff> TGetFourStaffList()
+        {
+            return _staffdal.GetFourStaffList();
+        }
+
         public List<Staff> TGetList()
         {
          return   _staffdal.GetList();
@@ -34,6 +39,11 @@ namespace HotelProject.BusinnessLayer.Concrete
         public List<Staff> TGetListByFilter(Expression<Func<Staff, bool>> where)
         {
             return _staffdal.GetListByFilter(where);
+        }
+
+        public int TGetStaffCount()
+        {
+            return _staffdal.GetStaffCount();
         }
 
         public void TInsert(Staff t)

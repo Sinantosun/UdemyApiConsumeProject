@@ -40,6 +40,11 @@ namespace HotelProject.BusinnessLayer.Concrete
             return _roomDal.GetListByFilter(where);
         }
 
+        public int TGetRoomCount()
+        {
+            return _roomDal.GetRoomCount();
+        }
+
         public void TInsert(Room t)
         {
             _roomDal.Insert(t);

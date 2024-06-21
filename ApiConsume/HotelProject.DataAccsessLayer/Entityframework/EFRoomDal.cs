@@ -19,5 +19,10 @@ namespace HotelProject.DataAccsessLayer.Entityframework
         {
             return _context.Rooms.OrderByDescending(x => x.RoomId).Take(3).ToList();
         }
+
+        public int GetRoomCount()
+        {
+            return _context.Rooms.Count();
+        }
     }
 }

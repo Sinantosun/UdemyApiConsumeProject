@@ -3,33 +3,46 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    string cssCard = "";
 }
-
 
 <div class="table-responsive">
     <table class="table table-xs mb-0">
         <thead>
             <tr>
                 <th>#</th>
-                <th></th>
                 <th>Şehir</th>
-                <th>Çalıştığı Yer</th>
-                <th>Durum</th>
+           
+                <th>Ülke</th>
+                <th>Çalıştığı Şube</th>
+                <th>Cinsiyet</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
+             
+                if (item.Gender == "Erkek")
+                {
+                    cssCard = "success";
+                }
+                else
+                {
+                    cssCard = "danger";
+                    
+                }
                 <tr>
-                    <td><img src="@item.ImageURL" class=" rounded-circle mr-3" alt=""></td>
-                    <td style="text-transform:capitalize">
-                        @item.NameSurname </td>
+                    <td style="width:300px"><img src="@item.ImageURL" class=" rounded-circle mr-3" alt="">
+
+                        <span style="text-transform:capitalize">@item.NameSurname</span>
+                    </td>
                     <td>@item.City</td>
+                    <td>@item.Country</td>
                     <td>@item.WorkLocation.LocationName</td>
-                    <td><i class="fa fa-circle-o text-success  mr-2"></i> Aktif</td>
+                    <td><i class="fa fa-circle-o text-@cssCard  mr-2"></i> @item.Gender</td>
                 </tr>
             }
-  
+
         </tbody>
     </table>
     <br />

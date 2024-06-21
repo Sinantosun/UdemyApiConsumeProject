@@ -29,9 +29,19 @@ namespace HotelProject.BusinnessLayer.Concrete
             _bookingDal.Delete(t);
         }
 
+        public int TGetBookingCount()
+        {
+            return _bookingDal.GetBookingCount();
+        }
+
         public Booking TGetById(int id)
         {
             return _bookingDal.GetById(id);
+        }
+
+        public List<Booking> TGetLastSixBookingList()
+        {
+            return _bookingDal.GetLastSixBookingList();
         }
 
         public List<Booking> TGetList()

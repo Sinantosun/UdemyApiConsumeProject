@@ -9,6 +9,9 @@ namespace HotelProject.WebUI.Dtos.AppUserDto
         public string ImageURL { get; set; }
         public string WorkDepartmant { get; set; }
 
+        public string Country { get; set; }
+        public string Gender { get; set; }
+
         public int WorkLocationID { get; set; }
         public WorkLocation WorkLocation { get; set; }
     }
