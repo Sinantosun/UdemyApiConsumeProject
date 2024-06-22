@@ -1,0 +1,74 @@
+﻿@model List<HotelProject.EntityLayer.Concrete.AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+
+<div class="container">
+
+    <div class="table-responsive mt-3">
+        <h1 class="card-title text-muted mb-4">Kullanıcı Listesi</h1>
+        <table class="table table-hover mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Kullanıcı</th>
+                    <th class="text-center" scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tbody>
+                    <tr>
+                        <td>@count</td>
+                        <td >
+                            <img src="@item.ImageURL" class=" rounded-circle mr-3" alt="">
+
+                            <span style="text-transform:capitalize">@item.NameSurname</span>
+                        </td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/RoleAssign/AssignRole/@item.Id" data-toggle="tooltip" data-placement="top" title="Rol Ata"><i class="fa fa-pencil text-success m-r-5"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+    function deleteStaff(id) {
+        Swal.fire({
+            title: "Kayıt Silme Onayı",
+            html: "Personeli kaydını silmek istediğinize emin misiniz? <br><b> bu işlem geri alanımaz.</b>",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sil",
+            cancelButtonText: "Vazgeç"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Staff/DeleteStaff/" + id;
+            }
+            else {
+                Toast.fire({
+                    icon: "warning",
+                    title: "Kayıt Silme işlemi iptal edildi."
+                });
+            }
+        });
+    }
+</script>
+@await Html.PartialAsync("~/Views/AdminLayout/NotificationPartial.cshtml")
+

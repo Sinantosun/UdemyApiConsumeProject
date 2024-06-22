@@ -1,0 +1,20 @@
+﻿@using HotelProject.WebUI.Models.Role;
+@model AddRoleViewModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1 class="card-title text-muted mb-4">Yeni Rol ekleme sayfası</h1>
+    <form method="post">
+        <label>Rol Adı</label>
+        <input type="text" asp-for="RoleName" class="form-control" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+        <br />
+        <button class="btn btn-outline-primary"><i class="fa fa-plus"></i> Ekle</button>
+    </form>
+</div>
+
+
+

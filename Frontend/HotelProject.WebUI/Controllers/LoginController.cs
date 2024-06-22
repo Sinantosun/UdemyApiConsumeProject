@@ -24,7 +24,7 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(LoginUserDto loginUserDto)
+        public async Task<IActionResult> Index(LoginUserDto loginUserDto, string? ReturnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -32,9 +32,19 @@ namespace HotelProject.WebUI.Controllers
                 var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
                 if (result.Succeeded)
                 {
-                    TempData["Result"] = "Giriş Başarılı, Hoşgeldiniz";
-                    TempData["Icon"] = "success";
-                    return RedirectToAction("Index", "Staff");
+               
+                    if (string.IsNullOrEmpty(ReturnUrl))
+                    {
+                        TempData["Result"] = "Giriş Başarılı, Hoşgeldiniz";
+                        TempData["Icon"] = "success";
+                        return RedirectToAction("Index", "Staff");
+                    }
+                    else
+                    {
+                        TempData["Result"] = "Giriş Başarılı, Hoşgeldiniz";
+                        TempData["Icon"] = "success";
+                        return Redirect(ReturnUrl);
+                    }
                 }
                 else
                 {

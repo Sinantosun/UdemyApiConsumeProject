@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace HotelProject.WebUI.Controllers
 {
-    [AllowAnonymous]
+
     public class AdminUsersController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
