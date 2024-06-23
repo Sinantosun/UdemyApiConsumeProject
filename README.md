@@ -1,4 +1,4 @@
-![image06](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/3c147508-12fa-4339-9d4a-4559d3bc6660)![image03](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/33210336-a88b-4ecf-a89b-04bf1132eae3)Herkese Merhaba,
+Herkese Merhaba,
 
 Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmiş API ve MVC uygulamasını içermektedir.
 
