@@ -9,7 +9,7 @@
 
     <div class="table-responsive mt-3">
         <h1 class="card-title text-muted mb-4">Rol Listesi</h1>
-        <a href="/Role/AddRole" class="btn btn-outline-primary">Yeni Rol Ekle</a>
+        <a href="/Role/AddRole" class="btn btn-outline-primary"><i class="fa fa-plus"> </i> Yeni Rol Ekle</a>
         <table class="table table-hover mt-4">
             <thead>
                 <tr>
@@ -25,18 +25,18 @@
                     <tr>
                         <td>@count</td>
                         <td>@item.Name</td>
-
                         <td style="width:40px">
                             <span>
-                                <a href="/Role/UpdateRole/@item.Id" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <button onclick="deleteRole(@item.Id)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <button onclick="deleteRole(@item.Id)" class="btn btn-outline-danger" ><i class="fa fa-trash"></i> Sil</button>
                             </span>
 
                         </td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/Role/UpdateRole/@item.Id" class="btn btn-outline-success" ><i class="fa fa-pencil m-r-5"></i> Güncelle</a>
+                            </span>
+                        </td>
+                      
                     </tr>
                 </tbody>
 

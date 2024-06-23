@@ -11,7 +11,7 @@
 
     <div class="table-responsive mt-3">
         <h1 class="card-title text-muted mb-4">Lokasyon Listesi</h1>
-        <a href="/AdminWorkLocation/AddWorkLocation" class="btn btn-outline-primary">Yeni lokasyon girişi</a>
+        <a href="/AdminWorkLocation/AddWorkLocation" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Yeni lokasyon girişi </a>
         <table class="table table-hover mt-4">
             <thead>
                 <tr>
@@ -31,15 +31,16 @@
                         <td>@item.LocationName</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/AdminWorkLocation/UpdateWorkLocation/@item.WorkLocationID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <button onclick="deleteLocation(@item.WorkLocationID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <button onclick="deleteLocation(@item.WorkLocationID)" class="btn btn-outline-danger"><i class="fa fa-trash"></i> Sil</button>
                             </span>
 
                         </td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/AdminWorkLocation/UpdateWorkLocation/@item.WorkLocationID" class="btn btn-outline-success"><i class="fa fa-pencil  m-r-5"></i> Güncelle</a>
+                            </span>
+                        </td>
+                    
                     </tr>
                 </tbody>
 

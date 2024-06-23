@@ -29,6 +29,24 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> Index(string GuestName)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5269/api/Booking/GetByGuestName/{GuestName}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultBookingDto>>(jsonData);
+                TempData["showAllButton"] = "true";
+                return View(values);
+            }
+            return View();
+        }
+
+
+
+
         public async Task<IActionResult> ApprovedReservation(int id)
         {
 

@@ -30,15 +30,16 @@
                         <td>@item.Title</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/Staff/UpdateStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <button onclick="deleteStaff(@item.StaffID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <button onclick="deleteStaff(@item.StaffID)" class="btn btn-outline-danger"> <i class="fa fa-trash "></i> Sil </button>
                             </span>
 
                         </td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/Staff/UpdateStaff/@item.StaffID" class="btn btn-outline-success"> <i class="fa fa-edit m-r-5"></i> Güncelle </a>
+                            </span>
+                        </td>
+                     
                     </tr>
                 </tbody>
 

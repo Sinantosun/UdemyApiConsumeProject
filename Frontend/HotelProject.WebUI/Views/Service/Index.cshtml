@@ -29,15 +29,16 @@
                         <td>@item.Title</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/Service/UpdateService/@item.ServiceID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <button onclick="deleteService(@item.ServiceID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <button onclick="deleteService(@item.ServiceID)" class="btn btn-outline-danger" ><i class="fa fa-trash "> Sil </i></button>
                             </span>
 
                         </td>
+                        <td style="width:40px">
+                            <span>
+                                <a href="/Service/UpdateService/@item.ServiceID" class="btn btn-outline-success" ><i class="fa fa-pencil text-success m-r-5"> Güncelle </i></a>
+                            </span>
+                        </td>
+                      
                     </tr>
                 </tbody>
 

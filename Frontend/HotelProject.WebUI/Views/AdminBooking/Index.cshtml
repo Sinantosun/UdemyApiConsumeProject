@@ -3,65 +3,105 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
     int count = 0;
+    string cardCss = "";
+    string disableButton = "";
 }
 
-<div class="container">
 
-    <div class="table-responsive mt-3">
-        <h1 class="card-title text-muted mb-4">Rezarvasyon Listesi</h1>
-        <table class="table table-hover mt-4">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Misafir</th>
-                    <th scope="col">Giriş Tarihi</th>
-                    <th scope="col">Çıkış Tarihi</th>
-                    <th scope="col">Durum</th>
-                    <th colspan="4" class="text-center" scope="col">İşlemler</th>
-                </tr>
-            </thead>
-            @foreach (var item in Model)
+
+<div class="table-responsive mt-3">
+    <h1 class="card-title text-muted mb-4">Rezarvasyon Listesi</h1>
+
+    <form method="post">
+        <input type="text" class="form-control" name="GuestName" placeholder="Misafir Adı" />
+        <br />
+        <button class="btn btn-outline-dark"><i class="fa fa-search"></i> Ara</button>
+    </form>
+
+    @if (TempData["showAllButton"] != null)
+    {
+        <br />
+        <a href="/AdminBooking/Index" class="btn btn-outline-primary">Tüm Kayıtlar</a>
+    }
+
+    <table class="table table-hover mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Misafir</th>
+                <th scope="col">Giriş Tarihi</th>
+                <th scope="col">Çıkış Tarihi</th>
+                <th scope="col">Durum</th>
+                <th colspan="4" class="text-center" scope="col">İşlemler</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            count++;
+
+            if (item.Status == "Onay Bekliyor")
             {
-                count++;
-                <tbody>
-                    <tr>
-                        <td>@count</td>
-                        <td style="text-transform:capitalize">@item.NameSurname</td>
-                        <td>@(((DateTime)item.CheckIn).ToString("f"))</td>
-                        <td>@(((DateTime)item.CheckOut).ToString("f"))</td>
-                        <td>
-                            <span class="badge badge-primary px-2">@item.Status</span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <a href="/AdminBooking/ApprovedReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <button onclick="CancelReservation(@item.BookingID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="İptal Et"><i class="fa fa-times text-danger"></i></button>
-                            </span>
+                cardCss = "primary";
+            }
 
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <a href="/AdminBooking/WaitReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                        <td style="width:40px">
-                            <span>
-                                <a href="/AdminBooking/ReservationUpdate/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check text-success m-r-5"></i></a>
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
+            if (item.Status == "Beklemede,Müşteri Aranacak")
+            {
+                cardCss = "warning";
+            }
+
+            if (item.Status == "İptal Edildi")
+            {
+                cardCss = "danger";
 
             }
 
-        </table>
-    </div>
+            if (item.Status == "Onaylandı")
+            {
+                cardCss = "success";
+                disableButton = "disabled";
+            }
+            else
+            {
+                disableButton = "";
+            }
 
+            <tbody>
+                <tr>
+                    <td style="text-transform:capitalize">@item.NameSurname</td>
+                    <td>@(((DateTime)item.CheckIn).ToString("D"))</td>
+                    <td>@(((DateTime)item.CheckOut).ToString("D"))</td>
+                    <td>
+                        <span class="badge badge-@cardCss px-2">@item.Status</span>
+                    </td>
+                    <td>
+                        <span>
+                            <a href="/AdminBooking/ApprovedReservation/@item.BookingID"  class="btn btn-outline-success @disableButton"><i class="fa fa-check m-r-5"> Onayla</i></a>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <button onclick="CancelReservation(@item.BookingID)" class="btn btn-outline-danger"><i class="fa fa-times "></i> İptal Et</button>
+                        </span>
+
+                    </td>
+                    <td>
+                        <span>
+                            <a href="/AdminBooking/WaitReservation/@item.BookingID" class="btn btn-outline-warning"><i class="fa fa-check m-r-5"></i> Beklet</a>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <a href="/AdminBooking/ReservationUpdate/@item.BookingID" class="btn btn-outline-primary"><i class="fa fa-edit m-r-5"></i> Güncelle</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+
+    </table>
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 

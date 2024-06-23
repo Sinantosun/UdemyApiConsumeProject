@@ -73,5 +73,10 @@ namespace HotelProject.BusinnessLayer.Concrete
         {
             _bookingDal.BookingStatusChangeWait(id);
         }
+
+        public List<Booking> TGetBookingByGuestName(string name)
+        {
+          return  _bookingDal.GetBookingByGuestName(name);
+        }
     }
 }

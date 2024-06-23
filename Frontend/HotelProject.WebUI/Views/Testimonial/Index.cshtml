@@ -32,17 +32,16 @@
                         <td>@item.Title</td>
                         <td>@item.Description</td>
                         <td><img src="@item.Image" style="width:75px; height:75px; border-radius:50%" /></td>
-                        <td>@item.Title</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/Testimonial/UpdateTestimonail/@item.TestimonialID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
+                                <button onclick="deleteTestimonial(@item.TestimonialID)" class="btn btn-outline-danger" ><i class="fa fa-trash"> Sil </i></button>
                             </span>
+
                         </td>
                         <td style="width:40px">
                             <span>
-                                <button onclick="deleteTestimonial(@item.TestimonialID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <a href="/Testimonial/UpdateTestimonail/@item.TestimonialID" class="btn btn-outline-success"><i class="fa fa-pencil m-r-5"> Güncelle </i></a>
                             </span>
-
                         </td>
                     </tr>
                 </tbody>

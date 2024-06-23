@@ -32,7 +32,7 @@ namespace HotelProject.WebUI.Controllers
                 var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
                 if (result.Succeeded)
                 {
-               
+
                     if (string.IsNullOrEmpty(ReturnUrl))
                     {
                         TempData["Result"] = "Giriş Başarılı, Hoşgeldiniz";
@@ -54,6 +54,13 @@ namespace HotelProject.WebUI.Controllers
 
             return View();
 
+        }
+
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
         }
     }
 }

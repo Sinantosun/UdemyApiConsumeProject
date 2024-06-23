@@ -19,6 +19,8 @@ namespace HotelProject.DataAccsessLayer.Abstract
 
         void BookingStatusChangeWait(int id);
 
+        List<Booking> GetBookingByGuestName(string name);
+
 
     }
 }

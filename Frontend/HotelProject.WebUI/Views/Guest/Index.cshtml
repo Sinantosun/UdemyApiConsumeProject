@@ -35,14 +35,14 @@
                         <td>@item.City</td>
                         <td style="width:40px">
                             <span>
-                                <a href="/Guest/UpdateGuest/@item.GuestID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil text-success m-r-5"></i></a>
+                                <button onclick="deleteGuest(@item.GuestID)" class="btn btn-outline-danger"><i class="fa fa-trash "> Sil </i></button>
                             </span>
+
                         </td>
                         <td style="width:40px">
                             <span>
-                                <button onclick="deleteGuest(@item.GuestID)" style="outline:none; border:none; background-color:transparent; cursor:pointer " data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash text-danger"></i></button>
+                                <a href="/Guest/UpdateGuest/@item.GuestID" class="btn btn-outline-success"><i class="fa fa-pencil  m-r-5"> Güncelle</i></a>
                             </span>
-
                         </td>
                     </tr>
                 </tbody>

@@ -22,6 +22,7 @@ namespace HotelProject.DataAccsessLayer.Entityframework
         {
             var value = _context.Bookings.Find(id);
             value.Status = "Onaylandı";
+            
             _context.SaveChanges();
         }
 
@@ -37,6 +38,12 @@ namespace HotelProject.DataAccsessLayer.Entityframework
             value.Status = "Beklemede,Müşteri Aranacak";
             _context.SaveChanges();
         }
+
+        public List<Booking> GetBookingByGuestName(string name)
+        {
+            return _context.Bookings.Where(x => x.NameSurname == name).ToList();
+        }
+
         public int GetBookingCount()
         {
             return _context.Bookings.Count();
