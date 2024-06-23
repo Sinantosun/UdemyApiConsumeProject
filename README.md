@@ -62,6 +62,11 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 
 <h1>Yazılan apilerin Web Ara yüzünde tüketilmiş halleri</h1>
 
+![image07](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/32b82fb4-6a0b-473d-8cb5-89c354c43e75)
+
+<br>
+<hr>
+
 ![image08](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/e1a94896-1317-4856-92ad-3abede3af352)
 
 <br>
