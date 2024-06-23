@@ -25,6 +25,18 @@ namespace HotelProject.DataAccsessLayer.Entityframework
             _context.SaveChanges();
         }
 
+        public void BookingStatusChangeCancel(int id)
+        {
+            var value = _context.Bookings.Find(id);
+            value.Status = "İptal Edildi";
+            _context.SaveChanges();
+        }
+        public void BookingStatusChangeWait(int id)
+        {
+            var value = _context.Bookings.Find(id);
+            value.Status = "Beklemede,Müşteri Aranacak";
+            _context.SaveChanges();
+        }
         public int GetBookingCount()
         {
             return _context.Bookings.Count();
