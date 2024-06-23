@@ -29,7 +29,7 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 
 <hr>
 
-📌 Kullanıcılar rezarvasyon oluşturma sayfasında rezarvasyon oluşturduktan yazdıkları mail adresine aşağıda bulunan rezarvasyon detay maili gönderilmektedir.
+📌 Kullanıcılar rezarvasyon oluşturma sayfasında rezarvasyon oluştururken yazdıkları mail adresine aşağıda bulunan rezarvasyon detay maili gönderilmektedir.
 
 ![ımage11](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/336a9695-e0c7-469e-800b-d77d30492dd4)
 
