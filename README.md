@@ -24,9 +24,9 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 
 ![image06](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/a3f6d047-c7db-4cc5-8922-d95c14a984df)
 
-📌 Bu alanda rezervasyonlar listelenir ilgili rezervasyonların güncelleme iptal etme onaylama ve rezarvasyon bekletme işlemleri yer almaktadır. 
-📌 Misafir adına göre bu alanda filtreleme yapılır. 
-📌 Eğer bir kayıt onay alımışsa kayıt onaylama butonu pasife döner ve bir sonraki (iptal,beklet) işlemleri yapılana kadar pasif kalır.
+📌 Bu alanda rezervasyonlar listelenir ilgili rezervasyonların güncelleme iptal etme onaylama ve rezarvasyon bekletme işlemleri yer almaktadır. <br>
+📌 Misafir adına göre bu alanda filtreleme yapılır. <br>
+📌 Eğer bir kayıt onay alımışsa kayıt onaylama butonu pasife döner ve bir sonraki (iptal,beklet) işlemleri yapılana kadar pasif kalır.<br>
 
 <h1>Personel Listesi</h1>
 
