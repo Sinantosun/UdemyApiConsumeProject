@@ -76,7 +76,7 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 <br>
 <hr>
 
-![image12](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/480c40e2-2e8c-4411-832a-d14cab5dfb14)
+![image12](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/480c40e2-2e8c-4411-832a-d14cab5dfb14) 
 
 
 
