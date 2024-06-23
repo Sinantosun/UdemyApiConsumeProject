@@ -62,24 +62,21 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 
 <h1>Yazılan apilerin Web Ara yüzünde tüketilmiş halleri</h1>
 
-![image07](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/ec57d906-e029-4d72-b4a3-57787c2455db)
+![image08](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/e1a94896-1317-4856-92ad-3abede3af352)
+
 <br>
 <hr>
-![image08](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/11b37eaf-a52f-4975-bb8d-97010ea2405d)
+
+![image09](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/9f503119-da3f-40e9-8bb1-b64e1b786eaf)
 <br>
 <hr>
-![image09](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/b4e34ea0-f4dd-46e1-82f0-7da6d2784b35)
+
+![image10](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/7f1683d6-a1c2-40ea-8911-897a09408df4)
+
 <br>
 <hr>
-![image10](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/42eee803-6659-46e7-bbc9-bd82182f7e1c)
-<br>
-<hr>
-![image12](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/591fc928-46ca-480a-a235-f212ee6848b8)
 
-
-
-
-
+![image12](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/480c40e2-2e8c-4411-832a-d14cab5dfb14)
 
 
 
