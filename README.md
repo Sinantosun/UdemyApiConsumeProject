@@ -1,4 +1,4 @@
-Herkese Merhaba,
+![image08](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/bfe5786c-a949-4bb6-90f4-e579213af7c5)![image07](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/6b44237c-e131-4259-bbb3-32bc126f3bf8)Herkese Merhaba,
 
 Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmiş API ve MVC uygulamasını içermektedir.
 
@@ -13,7 +13,6 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 📌 Çok katmanlı mimari yapısı<br>
 📌 Mail gönderme işlemleri<br>
 
-
 <h1>Admin Dashboard Alanı</h1>
 
 ![image01](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/8297712a-fba3-42fa-a97e-951c1e476f31)
@@ -27,6 +26,14 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 📌 Bu alanda rezervasyonlar listelenir ilgili rezervasyonların güncelleme iptal etme onaylama ve rezarvasyon bekletme işlemleri yer almaktadır. <br>
 📌 Misafir adına göre bu alanda filtreleme yapılır. <br>
 📌 Eğer bir kayıt onay alımışsa kayıt onaylama butonu pasife döner ve bir sonraki (iptal,beklet) işlemleri yapılana kadar pasif kalır.<br>
+
+<hr>
+
+📌 Kullanıcılar rezarvasyon oluşturma sayfasında rezarvasyon oluşturduktan yazdıkları mail adresine aşağıda bulunan rezarvasyon detay maili gönderilmektedir.
+
+![ımage11](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/336a9695-e0c7-469e-800b-d77d30492dd4)
+
+<hr>
 
 <h1>Personel Listesi</h1>
 
@@ -51,6 +58,27 @@ Bu proje Asp.Net Core kullanarak çok katmanlı mimari yapısında geliştirilmi
 ![image](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/2a325c00-6645-493b-be16-3ae5c00e0fa7)
 
 📌 Burada ise kullanıcının var olan rolleri gelir eklenmek ve çıkarılmak istenen roller seçilip  güncelle butonu vasıtasıyla işlem tamamlanır.
+
+
+<h1>Yazılan apilerin Web Ara yüzünde tüketilmiş halleri</h1>
+
+![image07](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/ec57d906-e029-4d72-b4a3-57787c2455db)
+<br>
+<hr>
+![image08](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/11b37eaf-a52f-4975-bb8d-97010ea2405d)
+<br>
+<hr>
+![image09](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/b4e34ea0-f4dd-46e1-82f0-7da6d2784b35)
+<br>
+<hr>
+![image10](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/42eee803-6659-46e7-bbc9-bd82182f7e1c)
+<br>
+<hr>
+![image12](https://github.com/Sinantosun/UdemyApiConsumeProject/assets/145317724/591fc928-46ca-480a-a235-f212ee6848b8)
+
+
+
+
 
 
 
