@@ -9,7 +9,7 @@ namespace HotelProject.WebUI.Dtos.DAL
         {
             MimeMessage mimeMessage = new MimeMessage();
 
-            MailboxAddress mailboxAddressFrom = new MailboxAddress("Hotellier Admin", "aspnetcoreprojeler@gmail.com");
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("user", "mail adress from");
             mimeMessage.From.Add(mailboxAddressFrom);
 
             MailboxAddress mailboxAddressTo = new MailboxAddress("User", mail);
@@ -24,7 +24,7 @@ namespace HotelProject.WebUI.Dtos.DAL
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("aspnetcoreprojeler@gmail.com", "jpag jffd lkcu mhas");
+            smtpClient.Authenticate("mail adress", "password");
 
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);

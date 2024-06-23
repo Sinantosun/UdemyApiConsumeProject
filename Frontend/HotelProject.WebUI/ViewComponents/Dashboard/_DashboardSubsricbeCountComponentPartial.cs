@@ -13,10 +13,10 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://instagram-profile1.p.rapidapi.com/getprofile/murattycedag"),
+                RequestUri = new Uri("https://instagram-profile1.p.rapidapi.com/getprofile/burayakullaniciadigelecek"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "instagram-profile1.p.rapidapi.com" },
     },
             };
@@ -34,10 +34,10 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var request2 = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://twitter32.p.rapidapi.com/getProfile?username=murattyucedag"),
+                RequestUri = new Uri("https://twitter32.p.rapidapi.com/getProfile?username=burayakullaniciadigelecek"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "twitter32.p.rapidapi.com" },
     },
             };
@@ -56,10 +56,10 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var request3 = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://fresh-linkedin-profile-data.p.rapidapi.com/get-linkedin-profile?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsinan-tosun-b44640236%2F&include_skills=false&include_certifications=false&include_publications=false&include_honors=false&include_volunteers=false&include_projects=false&include_patents=false&include_courses=false&include_organizations=false"),
+                RequestUri = new Uri("https://fresh-linkedin-profile-data.p.rapidapi.com/get-linkedin-profile?linkedin_url=burayalinkledinurlgelecek%2F&include_skills=false&include_certifications=false&include_publications=false&include_honors=false&include_volunteers=false&include_projects=false&include_patents=false&include_courses=false&include_organizations=false"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "fresh-linkedin-profile-data.p.rapidapi.com" },
     },
             };

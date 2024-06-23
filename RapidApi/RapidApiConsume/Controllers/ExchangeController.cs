@@ -18,7 +18,7 @@ namespace RapidApiConsume.Controllers
                 RequestUri = new Uri("https://booking-com.p.rapidapi.com/v1/metadata/exchange-rates?locale=en-gb&currency=TRY"),
                 Headers =
     {
-       { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+       { "x-rapidapi-key", "key" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
